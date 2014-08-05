@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://siteitems.bfwpub.com/SiteBuilder/API/Export" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://siteitems.bfwpub.com/SiteBuilder/API/Export" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://siteitems.bfwpub.com/SiteBuilder/API/Export">
+      <s:element name="ExportSite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="siteId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="agilixEntityId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="domainId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="folderPath" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportSiteResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportSiteResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoStep">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportInfoJsonString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Step" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoStepResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DoStepResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ExportSiteSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportSite" />
+  </wsdl:message>
+  <wsdl:message name="ExportSiteSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportSiteResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoStepSoapIn">
+    <wsdl:part name="parameters" element="tns:DoStep" />
+  </wsdl:message>
+  <wsdl:message name="DoStepSoapOut">
+    <wsdl:part name="parameters" element="tns:DoStepResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ExportSoap">
+    <wsdl:operation name="ExportSite">
+      <wsdl:input message="tns:ExportSiteSoapIn" />
+      <wsdl:output message="tns:ExportSiteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoStep">
+      <wsdl:input message="tns:DoStepSoapIn" />
+      <wsdl:output message="tns:DoStepSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExportSoap" type="tns:ExportSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExportSite">
+      <soap:operation soapAction="http://siteitems.bfwpub.com/SiteBuilder/API/Export/ExportSite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoStep">
+      <soap:operation soapAction="http://siteitems.bfwpub.com/SiteBuilder/API/Export/DoStep" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExportSoap12" type="tns:ExportSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ExportSite">
+      <soap12:operation soapAction="http://siteitems.bfwpub.com/SiteBuilder/API/Export/ExportSite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoStep">
+      <soap12:operation soapAction="http://siteitems.bfwpub.com/SiteBuilder/API/Export/DoStep" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Export">
+    <wsdl:port name="ExportSoap" binding="tns:ExportSoap">
+      <soap:address location="http://dev-bcs.bfwpub.com:81/SiteBuilder_PX/testdev/API/Export.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExportSoap12" binding="tns:ExportSoap12">
+      <soap12:address location="http://dev-bcs.bfwpub.com:81/SiteBuilder_PX/testdev/API/Export.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
