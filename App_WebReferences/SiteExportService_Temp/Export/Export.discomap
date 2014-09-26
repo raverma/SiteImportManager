@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Results>
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://dev-bcs.bfwpub.com:81/SiteBuilder_PX/testdev/API/Export.asmx?disco" filename="Export.disco" />
-    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://dev-bcs.bfwpub.com:81/SiteBuilder_PX/testdev/API/Export.asmx?wsdl" filename="Export.wsdl" />
-  </Results>
-</DiscoveryClientResultsFile>
