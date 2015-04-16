@@ -69,7 +69,7 @@
                     &nbsp;</td>
                 <td>
                     <asp:HyperLink ID="hlink_testdev" runat="server" 
-                        NavigateUrl="~/SiteExport.aspx">To Export from SB prod, click here</asp:HyperLink>
+                        NavigateUrl="~/SiteExport.aspx" Font-Names="Arial">To Export from SB prod, click here</asp:HyperLink>
                 </td>
             </tr>
         </table>
